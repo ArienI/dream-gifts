@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import styles from './App.module.css';
 import Header from '../Header/Header';
+import Main from '../Main/Main';
 
 export default function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -22,6 +23,7 @@ export default function App() {
   return (
     <div className={styles.app}>
       <Header />
+      <Main />
       <pre style={{ margin: 'auto', fontSize: '1.5rem' }}>
         ...=^.^=❤meow❤=^.^=...
       </pre>

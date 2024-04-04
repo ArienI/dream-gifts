@@ -1,0 +1,21 @@
+.profile {
+  align-items: flex-start;
+  color: #5b2d76;
+  display: flex;
+  font-family: Inter, Arial, sans-serif;
+  width: 100%;
+}
+
+.avatar {
+  border-radius: 50%;
+  height: 120px;
+  margin: 3.75px 26.25px;
+  -o-object-fit: cover;
+  object-fit: cover;
+  width: 120px;
+}
+
+.avatar:hover {
+  opacity: 0.5;
+  transition: 1s;
+}
