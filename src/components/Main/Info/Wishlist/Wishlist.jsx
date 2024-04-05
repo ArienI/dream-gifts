@@ -9,12 +9,14 @@ const Wishlist = () => {
 
       <h1 className={styles.title}>Wishlist annd gifts ideas:</h1>
 
-      <ul>
-        <li>1</li>
-        <li>2</li>
-        <li>3</li>
+      <ul className={styles.items}>
+        <li>Большая, пушистая и красивая ёлка </li>
+        <li>котоподушка</li>
+        <li>Монтгомери"Энн"</li>
+        <li>сапборд</li>
+        <li>конфетки</li>
+        <li>краски</li>
       </ul>
-
 
     </section>
 
