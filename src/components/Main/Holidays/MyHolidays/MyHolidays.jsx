@@ -8,7 +8,7 @@ export default function MyHolidays() {
   return (
 
     <div className={styles.myHolidays}>
-      <h1>My holidays:</h1>
+      <h1 className={styles.title}>My holidays:</h1>
       <div className={styles.holiday}>
         <div className={styles.holidayName}>День рождение</div>
         <div className={styles.holidayName}>День котика</div>

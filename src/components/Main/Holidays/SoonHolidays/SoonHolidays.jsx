@@ -9,7 +9,7 @@ export default function SoonHolidays() {
   return (
 
     <div className={styles.soonHolidays}>
-      <h1>The holidays are coming up soon:</h1>
+      <h1 className={styles.title}>The holidays are coming up soon:</h1>
       <div className={styles.holiday}>
         <div className={styles.holidayName}>Ярик(ДР) </div>
         <div className={styles.holidayName}>папа(ДР)</div>

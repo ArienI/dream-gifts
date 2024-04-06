@@ -9,3 +9,8 @@
   box-shadow: 2px 2px 4px #5b2d76;
   background-color: #f7dbf2;
 }
+
+.title {
+  font-size: 40px;
+  font-weight: bold;
+}
