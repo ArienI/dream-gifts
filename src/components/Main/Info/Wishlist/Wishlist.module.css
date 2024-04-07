@@ -24,7 +24,7 @@
 }
 
 .title {
-  font-size: 40px;
+  font-size: 35px;
   font-weight: bold;
 }
 
@@ -51,6 +51,7 @@
   box-shadow: 2px 2px 4px #5b2d76;
   font-weight: bold;
   margin-left: 5px;
+  color: #5b2d76;
 }
 
 .btn:active {

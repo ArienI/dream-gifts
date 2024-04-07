@@ -8,9 +8,13 @@
   max-width: 150px;
   box-shadow: 2px 2px 4px #5b2d76;
   background-color: #f7dbf2;
+  border-radius: 6px;
+  text-align: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .title {
-  font-size: 40px;
+  font-size: 30px;
   font-weight: bold;
 }
