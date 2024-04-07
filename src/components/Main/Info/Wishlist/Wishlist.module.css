@@ -8,6 +8,16 @@
   gap: 10px;
 }
 
+.customScroll {
+  overflow-y: scroll;
+  /* Добавляе прокрутку, если контент переполнен */
+  max-height: 320px;
+  /* Цвет ползунка и дорожки */
+  scrollbar-color: #5b2d76 #b494c7;
+  /* Толщина полосы прокрутки */
+  scrollbar-width: thin;
+}
+
 .item {
   padding: 0;
   max-width: 450px;
@@ -24,8 +34,10 @@
   background-color: #f7dbf2;
   border: 3px solid #b494c7;
   border-radius: 6px;
-
   font-weight: bold;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .btn {
@@ -34,11 +46,19 @@
   background-color: #f7dbf2;
   border: 3px solid #b494c7;
   border-radius: 6px;
-
   cursor: pointer;
   box-shadow: 2px 2px 4px #5b2d76;
   font-weight: bold;
   margin-left: 5px;
+}
+
+.btn:active {
+  /* немного уменьшаем кнопку */
+  transform: scale(0.95);
+  /* цвет фона при нажатии */
+  background-color: #b494c7;
+  /* добавляем тень*/
+  box-shadow: 0 2px 5px rgba(129, 2, 155, 0.274);
 }
 
 .btnEdit {

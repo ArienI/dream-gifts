@@ -48,7 +48,7 @@ const Wishlist = () => {
     if (error) setError('');
   };
 
-  // Начинает редактирование выбранного желания
+  // Начинаем редактирование выбранного желания
   const startEdit = (index) => {
     setEditIndex(index);
     setEditText(items[index]);
@@ -56,7 +56,7 @@ const Wishlist = () => {
     setError('');
   };
 
-  // Сохраняет отредактированное желание
+  // Сохраняем отредактированное желание
   const saveEdit = () => {
     if (!editText.trim()) {
       // Если после обрезки пробелов текст пустой, устанавливаем ошибку
@@ -83,6 +83,12 @@ const Wishlist = () => {
     setError('');
   };
 
+  // Удаляем желание из списка  
+  const deleteWish = (index) => {
+    const updatedItems = items.filter((_, itemIndex) => itemIndex !== index);
+    setItems(updatedItems);
+  };
+
   return (
     <section className={styles.wishlist}>
       <h1 className={styles.title}>Wishlist and gifts ideas:</h1>
@@ -96,7 +102,7 @@ const Wishlist = () => {
       />
       <button className={styles.btn} onClick={addWish}>+</button>
 
-      <ol className={styles.list}>
+      <ol className={`${styles.list} ${styles.customScroll}`}>
         {items.map((item, index) => (
           <li className={styles.item} key={index}>
             {editIndex === index ? (
@@ -117,7 +123,7 @@ const Wishlist = () => {
                 <button className={styles.btn} onClick={() => startEdit(index)}>
                   <img src={Edit} alt="Edit" className={styles.btnEdit} />
                 </button>
-                <button className={styles.btn}>
+                <button className={styles.btn} onClick={() => deleteWish(index)}>
                   <img src={Del} alt="Delete" className={styles.btnEdit} />
                 </button>
               </>
