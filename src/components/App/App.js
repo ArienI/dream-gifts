@@ -17,7 +17,7 @@ export default function App() {
   }, []);
 
   if (isLoading) {
-    return <div className={styles.preloader}>... =^.^=❤meow❤=^.^= ...</div>;
+    return <div className={styles.preloader}>... =^.^=❤<sup>meow</sup>❤=^.^= ...</div>;
   }
 
   return (
@@ -25,7 +25,7 @@ export default function App() {
       <Header />
       <Main />
       <pre style={{ margin: 'auto', fontSize: '1.5rem' }}>
-        ...=^.^=❤meow❤=^.^=...
+        ...=^.^=❤<sup>meow</sup>❤=^.^=...
       </pre>
     </div>
   );

@@ -11,5 +11,9 @@
   justify-content: center;
   align-items: center;
   height: 100vh;
-  font-size: 20px;
+  font-size: 40px;
+}
+
+.preloader sup {
+  font-size: 16px;
 }
