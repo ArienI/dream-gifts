@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import styles from './Wishlist.module.css';
 import Edit from '../../../../images/icons8-редактировать.svg';
 import Del from '../../../../images/icons8-48.svg';
@@ -25,6 +25,8 @@ const Wishlist = () => {
   const [editText, setEditText] = useState('');
   // Состояние для сообщения об ошибке
   const [error, setError] = useState('');
+  // Состояние для отключения поля редактирования при нажатие вне его
+  const editInputRef = useRef(null);
 
   // Обрабатывает изменение в поле ввода нового желания
   const handleInputChange = (event) => {
@@ -89,6 +91,19 @@ const Wishlist = () => {
     setItems(updatedItems);
   };
 
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (editInputRef.current && !editInputRef.current.contains(event.target)) {
+        cancelEdit();
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
+
   return (
     <section className={styles.wishlist}>
       <h1 className={styles.title}>Wishlist and gifts ideas:</h1>
@@ -106,7 +121,7 @@ const Wishlist = () => {
         {items.map((item, index) => (
           <li className={styles.item} key={index}>
             {editIndex === index ? (
-              <>
+              <div ref={editInputRef}>
                 <input
                   className={styles.wish}
                   value={editText}
@@ -116,7 +131,7 @@ const Wishlist = () => {
                 />
                 <button className={styles.edit} onClick={saveEdit}>save</button>
                 <button className={styles.edit} onClick={cancelEdit}>cancel</button>
-              </>
+              </div>
             ) : (
               <>
                 {isURL(item) ? <a href={item} target="_blank" rel="noopener noreferrer">{item}</a> : item}
@@ -138,6 +153,5 @@ const Wishlist = () => {
 export default Wishlist;
 
 // доделать:
-// нажатие вне поля отключает редактирование
 // для li сделать ограниечение до двух строк, остальное скрывать(при наведении курсором показывать). Вместе со второй строкой должны помещаться иконки редактирования
 // сделать нажатие на ссылки работающим с открытием новой страницы
