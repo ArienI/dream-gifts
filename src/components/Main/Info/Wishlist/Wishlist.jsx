@@ -107,26 +107,27 @@ const Wishlist = () => {
   return (
     <section className={styles.wishlist}>
       <h1 className={styles.title}>Wishlist and gifts ideas:</h1>
-
-      <input
-        type="text"
-        className={styles.wish}
-        placeholder="Введите название или URL..."
-        value={newWish}
-        onChange={handleInputChange}
-      />
-      <button className={styles.btn} onClick={addWish}>+</button>
+      <div className={styles.newWishInput}>
+        <input
+          type="text"
+          className={styles.wish}
+          placeholder="Введите название или URL..."
+          value={newWish}
+          onChange={handleInputChange}
+        />
+        <button className={styles.btn} onClick={addWish}>+</button>
+      </div>
 
       <ol className={`${styles.list} ${styles.customScroll}`}>
         {items.map((item, index) => (
           <li className={styles.item} key={index}>
             {editIndex === index ? (
               <div ref={editInputRef}>
-                <input
-                  className={styles.wish}
+                <textarea
+                  className={styles.editInput}
                   value={editText}
                   onChange={handleEditChange}
-                  // Показываем сообщение об ошибке в placeholder, если оно есть
+                  //Показываем в placeholde сообщение об ошибке, если она есть
                   placeholder={error}
                 />
                 <button className={styles.edit} onClick={saveEdit}>save</button>
@@ -134,13 +135,24 @@ const Wishlist = () => {
               </div>
             ) : (
               <>
-                {isURL(item) ? <a href={item} target="_blank" rel="noopener noreferrer">{item}</a> : item}
-                <button className={styles.btn} onClick={() => startEdit(index)}>
-                  <img src={Edit} alt="Edit" className={styles.btnEdit} />
-                </button>
-                <button className={styles.btn} onClick={() => deleteWish(index)}>
-                  <img src={Del} alt="Delete" className={styles.btnEdit} />
-                </button>
+                <div className={styles.itemContent} title={item}>
+                  {isURL(item) ? (
+                    <a href={item} target="_blank" rel="noopener noreferrer">
+                      {item}
+                    </a>
+                  ) : (
+                    item
+                  )}
+                  <div className={styles.fullText}>{item}</div>
+                </div>
+                <div className={styles.buttons}>
+                  <button className={styles.btn} onClick={() => startEdit(index)}>
+                    <img src={Edit} alt="Edit" className={styles.btnEdit} />
+                  </button>
+                  <button className={styles.btn} onClick={() => deleteWish(index)}>
+                    <img src={Del} alt="Delete" className={styles.btnEdit} />
+                  </button>
+                </div>
               </>
             )}
           </li>
@@ -152,6 +164,7 @@ const Wishlist = () => {
 
 export default Wishlist;
 
+
+
 // доделать:
 // для li сделать ограниечение до двух строк, остальное скрывать(при наведении курсором показывать). Вместе со второй строкой должны помещаться иконки редактирования
-// сделать нажатие на ссылки работающим с открытием новой страницы
